@@ -1,0 +1,4 @@
+cd /Users/Laura/Applications/Aspera\ Connect.app/Contents/Resources
+
+./ascp -QTr -l 300M -k 1 -i ./asperaweb_id_dsa.openssh -W ...
+dbtest@gap-upload.ncbi.nlm.nih.gov:data/instant/yebryce/73011 .
