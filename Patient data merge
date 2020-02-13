@@ -1,0 +1,25 @@
+Import patient data to same file using R
+
+> install.packages("dplyr")
+
+Manually importing the patient cell counts with column IDs
+> test2 <- read_excel("Desktop/Patient data/test_2.xlsx",
++     range = "B19:EF20")
+    Where test2 = file name in R, "Desktop/Patient data" = file location, "test_2.xlsx" = file name
+
+Manually merging files
+> total <- rbind(test,test2)
+
+Input files "test" and "test2", output file "total"
+Column IDs must be identical
+
+Set the working directory
+> setwd("~/Desktop/Patient data")
+
+Automated importing of patient data cells from excel files in the wd in bulk
+> library(readxl)
+    > file.list <- list.files(pattern='*.xlsx', recursive = TRUE)
+    > df.list <- lapply(file.list, read_excel, range = "B19:EF20")
+> library(dplyr)
+> df <- bind_rows(df.list, .id = "id")
+    > View(df)
